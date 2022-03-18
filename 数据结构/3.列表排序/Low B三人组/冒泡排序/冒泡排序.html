@@ -15,10 +15,10 @@
         function bubbleSort(unordArr){
             for(let i = 0;i < unordArr.length;i++) {//i为有序区的长度，最后无序区只剩一个数字，不需要比较
                 for(let j = 0;j < unordArr.length-i-1;j++) {//此处j是bubble位置，只能到无序区的倒数第二个位置
-                let bubble = unordArr[j]
-                let nextnum = unordArr[j+1]
-                unordArr[j] = Math.min(bubble,nextnum)
-                unordArr[j+1] = Math.max(bubble,nextnum)//降序排列的话将这两个赋值语句调换
+                    let bubble = unordArr[j]
+                    let nextnum = unordArr[j+1]
+                    unordArr[j] = Math.min(bubble,nextnum)
+                    unordArr[j+1] = Math.max(bubble,nextnum)//降序排列的话将这两个赋值语句调换
                 }
                 console.log(unordArr);
             }
