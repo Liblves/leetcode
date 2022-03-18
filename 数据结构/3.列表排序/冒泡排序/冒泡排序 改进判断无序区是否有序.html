@@ -25,7 +25,7 @@
                     console.log(p);
                     console.log(unordArr.length-i-1);
                     if(p === unordArr.length-i-1){//当p的值等于无序区长度减一（bubble只能也只需检测到这个位置），
-                        console.log(unordArr);
+                        console.log(unordArr);//其中刚排好序时那一次的bubble是必定变化的，所以需要一次循环捕获bubble不变
                         return 1//此时说明无序区已经有序直接结束循环
                     }
                 }else{//当bubble一旦变化，要将监测数据p值归零
