@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>汉诺塔问题</title>
 </head>
 <body>
     <script>
+        // 时间复杂度 O(2^n)
         function hanoi(n,a,b,c){
             if(n>0){
             hanoi(n-1,a,c,b)
