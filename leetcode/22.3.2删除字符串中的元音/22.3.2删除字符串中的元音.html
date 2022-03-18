@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- 给你一个字符串 s ，请你删去其中的所有元音字母 'a'，'e'，'i'，'o'，'u'，并返回这个新字符串。
+示例 1：
+
+输入：s = "leetcodeisacommunityforcoders"
+输出："ltcdscmmntyfrcdrs"
+示例 2：
+
+输入：s = "aeiou"
+输出：""
+ 
+
+提示：
+
+1 <= S.length <= 1000
+s 仅由小写英文字母组成 -->
+<!-- 
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/remove-vowels-from-a-string -->
+    <script>
+        // 注释为另一种方法
+        const cutString = function(string) {
+            let newString = ""       //不能将输出的变量定义成数组，不然输出的字母由逗号分隔，使它等于null，又无法读取length，不给值undefined也无法读取length
+            for(let k of string) {
+                if (k !== 'a' &&k !== 'e' &&k !== 'i' &&k !== 'o' &&k !=='u') {//k !== a||e||i||o||u逻辑错误；k !== a&&e&&i&&o&&u逻辑错误，没有任何东西同时等于这几个字母
+                    console.log(k);
+                    // newString[newString.length] = k
+                    newString += k//不将newString设为数组，而是利用字符串自加的方法使其完成拼接，若设初始值为null或者undefinde则会在结果头部输出这两个字符串
+                }
+            }
+            // let result = newString.join("")//"" 传入空字符串才是不会以任何东西间隔       // join() 方法用于把数组中的所有元素放入一个字符串。 元素是通过指定的分隔符进行分隔的。
+            
+            alert(newString)                           //不给join()方法传入任何值，或者给它传入undefined，则使用逗号作为分隔符。传入“ ”则会以空格间隔
+            // alert(result)
+        }
+        let s = prompt('请输入由26个小写字母组成的字符串')
+        const croice = function () {//编辑croice函数使不满足条件的一边死循环一直调用croice
+            if (s.length > 1 && s.length < 1000) {
+                console.log(s.length);
+            cutString(s)
+        }else {
+            alert('请输入长度1到1000的字符串')
+            s = prompt('请输入由26个小写字母组成的字符串')
+            croice()
+        }}
+    
+        croice()//别忘了程序刚开始需要调用一下
+
+        // if (s.length > 1 && s.length < 1000) {
+        //     cutString(s)
+        // }else {
+        //     alert('请输入长度1到1000的字符串')
+        //     s = prompt('请输入由26个小写字母组成的字符串')
+        // }
+        
+    </script>
+</body>
+</html>

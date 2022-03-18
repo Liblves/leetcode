@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var removeVowels = function(s) {
+     if (s.length > 1 && s.length < 10000) {
+        let newString = ""
+        for(let k of s) {
+            if (k !== 'a' &&k !== 'e' &&k !== 'i' &&k !== 'o' &&k !=='u') {
+                newString += k
+                }
+            }
+            return(newString)}
+    }
+    var st = 'kqggsabguejnkvqhflwqtndjqakicbgcirayhvustungfyjrvgvxdcpwaoyqmqrorxfjlmvqazvgqwbwkiwypcxclzhskvrjdxrgbanlngwymdlmgurflfvnersfqkwnsmshuawfzrpqogrdarvjsbcufityblbtxmwaqecoukengfgrfjkxkocfeodoeihlrfrqilswokclmahrjkvfmkggsggmretdkxovagkttrvbjjrdwyobbhfzqsrzkzjpucmavzsndxincabzunfirjkrypahknchsrnuopxccdtlqpqgwcroliuaabyxilwecuubrzhhfvtwvodevwcicfgbxgtikuwditxcvizsqrempfbpxdtzogrrykzqhboontugmcyvnsurnxxjkxgllhddvhcznvfuqgswqvblnwvuegygiwqrifzsoseapmgqjmnjytoqxdjmcyjwysrbantchuxfyvuoqmoyhxvhraoppecplsjhbxwedlnxkxcvsgbudhtlnvwzxxkctcuahyyaipwlxyjcgwitrvdyfuvgkxnvdyupbxgcxsqhuvghgtbkuepoqlahqhamrrpyutmbpowauoaumpycqzhepvnxmuthtzjeevdnvmoetieppyxqexgumitudxbqysiqabhribjvysnavgspedlanomivqnsohszlvvgzfjkvwgwiyotkfpyxqfsimsrgayefuecafvctqbjdpprcduckwkkooprafpotrnvnkhzzqjpuwygoyhiemcezkbgmxtrzrhuvhootcuqbzfskbasvzwyxznsdqrufthtfwfujyffoeeshlsxptotjcwawqvclxgafjcausqajlgiepjvsmllxyjwdukyfwxtxsvrtminglpxyzmiovupkztliamjrjhircgmpiwsotwdpgjbbkfizfvscoovkcrtcjvpanpbdseyxxcjnpgtalnmhhenxxypvhonuzlhfcrrwieu'
+    console.log(removeVowels(st)); 
+    </script>
+</body>
+</html>

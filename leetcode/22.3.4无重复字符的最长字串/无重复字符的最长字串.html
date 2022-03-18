@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js中找到最大数字的方法
+            // 1.for循环
+            // 2.reduce（）方法
+            // 3.Math.max（）方法必须去掉中括号用apply(null,arr)
+
+            // js中终止循环
+            // 1、使用break语句退出循环，立刻退出包含在最内层的循环或者退出一个switch语句。
+            // 2、使用continue语句退出循环，不是退出一个循环，（如退出第八次循环，开始第九次）而是开始循环的一次新迭代。
+            // 3、使用return语句退出循环，只能出现在函数体内。
+
+        
+
+
+        // 暴力破解失败
+        // const longStr = function(s) {
+        //     let p = []
+        //     for(let i = 0 ;i<s.length;i++) {
+        //         for(let j = i+1;j<s.length;j++) {
+        //             if(s[i] === s[j]) {
+        //                 p.push(j-i)//该值为添加元素后数组长度，原数组已改变
+        //                 console.log(`${j-i}j:${j}i:${i}`);
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // //    console.log(Math.max.apply(null,p)); 
+        // }
+        // longStr('asdfghjklieuryetaadfdafdadsa')
+
+
+
+        // slice(num1,num2)从第num1后一个开始一直分割到num2（num不是索引）
+        
+            // let s="hello happy world!"
+            // console.log(s.slice(6,11));
+            const longStr = function(s) {
+            let p = []
+            for(let i = 0 ;i<s.length;i++) {
+                for(let j = i+1;j<s.length;j++) {
+                    if(s[i] === s[j]) {
+                         
+                    }
+                }
+            } 
+        }
+
+    </script>
+    <!-- dfghjklieuryetaad -->
+</body>
+</html>
