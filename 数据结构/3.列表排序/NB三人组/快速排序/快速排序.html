@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速排序</title>
+</head>
+<body>
+    <script>
+        function partition(unordArr,left,right) {
+            let targetNum = unordArr[left]
+            while(left < right) {
+                while(left < right && unordArr[right] > targetNum){
+                    right--//利用while循环不满足条件时就向左移
+                }
+                unordArr[left] = unordArr[right]//一旦满足条件就退出循环并赋值，即使left=right也没事
+                while(left < right && unordArr[left] < targetNum){
+                    left++
+                }
+                unordArr[right] = unordArr[left]
+            }
+            unordArr[right] = targetNum//把这个值归位
+            console.log(unordArr);
+            return right
+        } 
+        function quicSort(unordArr,left,right){//快速排列递归函数
+            if(left < right) {
+               let min = partition(unordArr,left,right)
+               quicSort(unordArr,left,min-1)
+               quicSort(unordArr,min+1,right)
+            }
+            console.log(unordArr);
+        }
+
+        
+        function randomArr(min,max,length) {//生成随机数组
+            let arr = []
+            for(let i = 0;i < length;i++){
+                let randomNum = Math.random()*(max-min+1)+min
+                arr.push(Math.floor(randomNum))
+            }
+            console.log(arr);
+            return arr
+        }
+        let arr = randomArr(10,100,10)//调用随机数组生成函数
+       quicSort(arr,0,arr.length-1)
+    </script>
+</body>
+</html>
