@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./大根堆排序位置调整while循环心脏函数.js"></script>
+    <script>
+        // i为子结点
+        // function heapAdjust(heapArr) { //向下调整函数   //对后一个数赋值给根结点后，原位置变成根结点的数，此时i取值范围减一 /
+        //     let deep = heapArr.length - 1
+        //     for (let j = heapArr.length - 1; j >= 0; j--) {
+        //         let num = heapArr[0]
+        //         heapArr[0] = heapArr[j]
+        //         heapArr[j] = num
+        //         deep-- //赋值之后此时deep应立即减少
+        //         if (deep >= 2) { //当堆向下调整到索引2时就不满足该条件了
+        //             nodeGoing(heapArr, 2, deep) //此时arr的根结点左右子节点已经是标准堆了，所以只要从根结点的两个子结点开始递归就行
+        //         } else if (deep === 1) {
+        //             nodeGoing(heapArr, 1, deep) //此时arr的根结点左右子节点已经是标准堆了，所以只要从根结点的两个子结点开始递归就行
+        //         }
+        //     }
+        //     console.log(heapArr);
+
+        // }
+
+        // i为需要调整的树的根结点
+        // 时间复杂度O（n * log n）
+        function heapAdjust(heapArr) { //向下调整函数   //对后一个数赋值给根结点后，原位置变成根结点的数，此时i取值范围减一 /
+            let deep = heapArr.length - 1
+            for (let j = heapArr.length - 1; j >= 0; j--) {
+                let num = heapArr[0]
+                heapArr[0] = heapArr[j]
+                heapArr[j] = num
+                deep-- //赋值之后此时deep应立即减少
+                nodeGoing(heapArr, 0, deep) //此时arr的根结点左右子节点已经是标准堆了，所以只要从根结点的两个子结点开始递归就行
+            }
+            console.log(heapArr);
+
+        }
+        heapAdjust([9, 8, 7, 4, 5, 6, 3, 2, 1])
+    </script>
+</body>
+
+</html>

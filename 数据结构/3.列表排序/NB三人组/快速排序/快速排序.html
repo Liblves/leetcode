@@ -8,6 +8,8 @@
 </head>
 <body>
     <script>
+        // 时间复杂度：O(n logn)
+        // 每次partition时间复杂度为O（n），一共执行logn次
         function partition(unordArr,left,right) {
             let targetNum = unordArr[left]
             while(left < right) {
