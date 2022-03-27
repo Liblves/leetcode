@@ -30,7 +30,7 @@
         // }
 
         // i为需要调整的树的根结点
-        // 时间复杂度O（n * log n）
+        // 时间复杂度O（n * log n）与创建堆平行整体时间复杂度不变
         function heapAdjust(heapArr) { //向下调整函数   //对后一个数赋值给根结点后，原位置变成根结点的数，此时i取值范围减一 /
             let deep = heapArr.length - 1
             for (let j = heapArr.length - 1; j >= 0; j--) {

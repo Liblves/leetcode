@@ -12,6 +12,7 @@
 
 //大根堆排序位置调整心脏函数
 
+// 时间复杂度：O（log n）
 function nodeGoing(arr, i, depth) { //此处i为需要调整的树的根结点
     let num = arr[i]
     let j = 2 * i + 1
@@ -30,3 +31,5 @@ function nodeGoing(arr, i, depth) { //此处i为需要调整的树的根结点
     }
     arr[i] = num //此时i是叶子结点的索引
 }
+// 总结思路：先将根元素存起来，从上往下找比根元素大的数，
+// 直到找不到则上一个空位置就是根元素的正确位置
