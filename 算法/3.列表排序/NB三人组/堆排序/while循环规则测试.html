@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // while循环中，当while循环条件不满足是，内循环结束并执行完内循环下面的代码以后才结束循环
+        function test() {
+            let i = 5
+            while (i > 2) {
+                for (let j = 5; j > 0; j--) {
+                    console.log(`i:${i},j:${j}`);
+                    i--
+                }
+                console.log(`我是外部log此时，i:${i}`);
+            }
+        }
+        test()
+    </script>
+</body>
+
+</html>

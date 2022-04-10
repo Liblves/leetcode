@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //必须要用小根堆，选最大的几个数只要比根小就直接舍弃
+        // 大根堆必须调整后才知道
+
+        // // 50个数选10个最大的
+
+        // 小根堆创建函数
+        function heapCreate(arr, k) {
+            const minFather = Math.floor((k - 2) / 2) //最小的父结点
+            let i = minFather
+            while (i >= 0) { //父结点一直循环到根结点结束
+                nodeGoing(arr, i, k - 1)
+                i--
+            }
+            const heapArr = arr
+                // console.log(heapArr);
+            return arr
+        }
+
+        // 小根堆调整心脏函数
+        function nodeGoing(arr, i, depth) { //深度为树的结点最大索引
+            let num = arr[i] //先将根结点存起来，找到合适的位置再插入
+            let j = i * 2 + 1
+            while (j <= depth) { //此处不可以用最小的父结点，不然叶子结点无法比较直接退出循环
+                if (j + 1 <= depth && arr[j] > arr[j + 1]) {
+                    j = j + 1 //此时右子结点存在且比左子结点小在用右子结点
+                }
+                if (num > arr[j]) {
+                    arr[i] = arr[j]
+                    i = j
+                    j = j * 2 + 1
+                } else {
+                    arr[i] = num
+                    break //一旦找到根节点合适位置，直接退出循环
+                }
+            }
+            arr[i] = num
+            const goingArr = arr
+                // console.log(goingArr);
+            return arr
+        }
+
+        // 小根堆降序排列函数
+        function heapSort(arr, k) {
+            let h = k - 1
+            while (h >= 0) {
+                let can = arr[0] //将此时的根和堆中最后一个数调换
+                arr[0] = arr[h]
+                arr[h] = can
+                h-- //此时已将该堆中最小的找出并排在最后，所以最后一个不用进入堆调整函数
+                nodeGoing(arr, 0, h)
+            }
+            const sortArr = arr
+            console.log(sortArr);
+            return arr
+        }
+
+        function topkSort(topkArr, k) {
+            // let arr = []
+            // for (let i = 0; i < k; i++) {
+            //     arr.push(topkArr[i])
+            // }
+            // console.log(arr);
+            heapCreate(topkArr, k) //调用小根堆创建函数
+            let p = k //从索引k开始向后循环
+            while (p <= topkArr.length - 1) {
+                if (topkArr[0] < topkArr[p]) { //小根堆的根小于索引p的值，就将p的值替换根结点
+                    topkArr[0] = topkArr[p]
+                    heapCreate(topkArr, k) //并将调整后的树调整成小根堆
+                }
+                p++
+            }
+            return heapSort(topkArr, k) //调用堆排序输出最终结果
+        }
+        topkSort([793, 443, 653, 555, 259, 379, 445, 221, 464, 392, 366, 876, 789, 486, 491, 227, 56, 496, 486, 123, 789, 566, 488, 159, 475, 148, 455], 5)
+    </script>
+</body>
+
+</html>

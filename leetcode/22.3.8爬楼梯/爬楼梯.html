@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
@@ -34,20 +36,15 @@
         // 链接：https://leetcode-cn.com/problems/climbing-stairs
         // 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-        // 0-n/2            0-(n-1)/2   2的个数
-        //n 偶数             奇数
-        // 1    2           1       2
-
-        // n    o           n       0
-        // n-2  1           n-1     1
-        // n-4  2           n-3     2
-
-        // 6    (n-6)/2      7      (n-7)/2
-        // 4    (n-4)/2      5      (n-5)/2
-        // 2    (n-2)/2      3      (n-3)/2
-        // 0    n/2          1      (n-1)/2
-
+        const climbStairs = function(n) {
+            const muchTwo = Math.floor(n / 2)
+            let total = 0
+            for (let i = 0; i <= muchTwo; i++) {
+                total += 1 + i * (n - i * 2)
+            }
+        }
     </script>
-    
+
 </body>
+
 </html>

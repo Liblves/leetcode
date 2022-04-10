@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=f, initial-scale=1.0" />
+    <title>插入排序</title>
+  </head>
+  <body>
+    <script>
+      // 时间复杂度 O（n^2）
+      function inserSort(unordArr) {
+        for (let i = 1; i < unordArr.length; i++) {
+          for (let j = i - 1; j >= 0; j--) {
+            if (unordArr[j] > unordArr[i]) {
+              unordArr[i] = [unordArr[j], (unordArr[j] = unordArr[i])][0]; //交换两个变量的值
+              i--; //此时该项的位置已经变了，且移动的项只能和相邻项交换，所以只要减一
+            }
+          }
+        }
+        console.log(unordArr);
+      }
+      inserSort([9, 3, 4, 2, 7, 7, 6, 8, 2]);
+    </script>
+  </body>
+</html>
