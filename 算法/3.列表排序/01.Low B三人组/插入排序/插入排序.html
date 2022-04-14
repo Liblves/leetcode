@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=f, initial-scale=1.0" />
+    <title>插入排序</title>
+</head>
+
+<body>
+    <script>
+        // 时间复杂度 O（n^2）
+        function inserSort(unordArr) {
+            for (let i = 1; i < unordArr.length; i++) {
+                let num = unordArr[i]
+                let j = i - 1
+                while (j >= 0 && unordArr[j] > num) {
+                    unordArr[j + 1] = unordArr[j]
+                    j -= 1
+                }
+                unordArr[j + 1] = num
+            }
+            console.log(unordArr);
+        }
+        inserSort([9, 3, 4, 2, 7, 7, 6, 8, 2]);
+    </script>
+</body>
+
+</html>

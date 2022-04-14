@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //遍历JSON树
+        const data = [{
+                name: '研发线',
+                children: [{
+                    name: '开发部',
+                    children: [{
+                        name: '前端组'
+                    }, {
+                        name: '后端组'
+                    }]
+                }, {
+                    name: '测试部',
+                    children: []
+                }]
+            }]
+            //检查是否有子树
+        function chickChildren(arm, output) {
+            // console.log(typeOfarm.children);
+            let armFoo = arm.children || []
+            console.log(armFoo);
+            let haveChildren = armFoo.length
+            if (haveChildren > 0) {
+                for (let i = 0; i < haveChildren; i++) {
+                    // console.log(armFoo[i]);
+                    output[output.length] = armFoo[i].name
+                    chickChildren(armFoo[i], output) //加索引明确父结点
+                }
+            }
+            return output
+        }
+
+        function readData(datalist) {
+            let output = []
+            for (let i = 0; i < datalist.length; i++) {
+                output[output.length] = datalist[i].name
+                chickChildren(datalist[i], output)
+            }
+            console.log(output);
+            return output
+        }
+        readData(data)
+    </script>
+</body>
+
+</html>
