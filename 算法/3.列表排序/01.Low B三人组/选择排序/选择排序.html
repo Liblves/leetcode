@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>选择排序</title>
 </head>
+
 <body>
     <script>
         // 时间复杂度O（n^2）
-        function seleSort(unordArr){
-            for(i = 0;i < unordArr.length-1;i++){//只需到length-2的位置就行，length-1是j的最后一个
+        function seleSort(unordArr) {
+            for (i = 0; i < unordArr.length - 1; i++) { //只需到length-2的位置就行，length-1是j的最后一个
                 let min = i
-                for(j = i+1;j < unordArr.length;j++){
-                    if(unordArr[min] > unordArr[j]){
+                for (j = i + 1; j < unordArr.length; j++) {
+                    // 找出无序区最小数的索引
+                    if (unordArr[min] > unordArr[j]) {
                         min = j
                     }
                 }
-                [unordArr[i],unordArr[min]] = [unordArr[min],unordArr[i]]//解构赋值，交换变量的值
+                [unordArr[i], unordArr[min]] = [unordArr[min], unordArr[i]] //解构赋值，交换变量的值
             }
             console.log(unordArr);
         }
-        seleSort([4,5,3,2,5,6])
+        seleSort([4, 5, 3, 2, 5, 6])
     </script>
 </body>
+
 </html>
