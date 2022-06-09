@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 时间复杂度O（n）
+        function countSort(targetArr, maxNum) {
+            // 计数用的数组
+            let countArr = []
+            for (let i = 0; i <= maxNum; i++) {
+                // 根据目标数组中元素最大值初始化计数数组，0~maxnum，索引对应目标数组的元素
+                countArr[i] = 0
+            }
+            console.log(countArr);
+            for (let i = 0; i < targetArr.length; i++) {
+                // 遍历目标数组的元素，同时（计数数组索引==目标元素）则计数数组的索引上的数值加一
+                countArr[targetArr[i]]++
+            }
+            console.log(countArr);
+            let j = 1
+            let num = 0
+                // 注意：此处虽然是两个循环嵌套，但是最后结果只更新了目标数组n个数，所以时间复杂度综合为O（n）
+            for (let i = 0; i <= maxNum; i++) {
+                // 计数已完成，遍历计数数组
+                while (j <= countArr[i]) {
+                    // j需要循环结束后归一，所以新命名num作为索引
+                    targetArr[num] = i
+                    num++
+                    j++
+                }
+                j = 1
+                console.log(targetArr);
+            }
+        }
+        countSort([4, 2, 4, 6, 7, 8, 4, 5, 3, 4, 5, 7, 5, 4, 4, 5, 7, 8], 8)
+    </script>
+</body>
+
+</html>
