@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function bucketSort(targetArr, n, contentNum) { //targetArr：目标函数；n:桶个数（桶的编号从0开始，为保证所有数字全部装入最后一个桶无限大);contentNum:桶的容量
+            let bucketArr = []
+                //从0开始为一个桶，依次创建n个桶
+            for (let i = 0; i < n; i++) {
+                bucketArr[i] = []
+            }
+            // console.log(bucketArr);
+            // 分桶并每个桶插入排序
+            for (let i = 0; i < targetArr.length; i++) {
+                let bucketIndex = Math.min(Math.floor(targetArr[i] / contentNum), n - 1) //确定应该放入的桶的编号,当元素无限大时也会被放入最后一个桶，此处为编号，最后一个桶为n-
+                    // 先将该数字push进数组
+                console.log(bucketIndex);
+                bucketArr[bucketIndex].push(targetArr[i])
+                if (bucketArr[bucketIndex].length - 1 > 0) { //当该桶中有其他元素
+                    let j = bucketArr[bucketIndex].length - 2 //从桶中其他元素的最后一个，往前依次比较
+                    while (bucketArr[bucketIndex][j] > targetArr[i]) { //新元素较小时一直循环
+                        bucketArr[bucketIndex][j + 1] = bucketArr[bucketIndex][j] //将较大的旧元素向后移
+                        j--
+                    }
+                    bucketArr[bucketIndex][j + 1] = targetArr[i] //j+1抵消最后一次j--
+                }
+            }
+            // 提取每个元素
+            let resArr = []
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < bucketArr[i].length; j++) {
+                    resArr.push(bucketArr[i][j])
+                }
+            }
+            console.log(resArr);
+        }
+        bucketSort([123, 12, 34, 24, 1, 43, 56, 66, 76, 86, 77, 54, 33, 89, 9, 99, 88, 34, 23, 12, 23, 43, 54, 65], 10, 10)
+    </script>
+</body>
+
+</html>
